@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yiğit Can Teke | Raporlama ve Uyarlama Uzmanı — Dijital CV</title>
+    <meta name="description" content="Yiğit Can Teke - SQL tabanlı raporlama, XML/XSLT veri entegrasyonu, fatura şablonu tasarımı ve Oracle BI / Power BI alanlarında deneyimli bilişim profesyoneli.">
+    <meta name="keywords" content="Yiğit Can Teke, SQL, XML, XSLT, Oracle BI, Power BI, Raporlama Uzmanı, Uyarlama Uzmanı, Dijital CV">
+    <meta name="author" content="Yiğit Can Teke">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Clean Print Stylesheet for A4 Resume Output */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #0f172a !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-container {
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+            }
+            .print-avoid-break {
+                break-inside: avoid;
+            }
+            a {
+                text-decoration: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#F8FAFC] text-slate-800 font-sans antialiased selection:bg-blue-600 selection:text-white min-h-screen flex flex-col">
+
+    <!-- Subtle Copy Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-16 opacity-0 pointer-events-none transition-all duration-300 bg-slate-900 text-white px-4 py-2.5 rounded-xl shadow-lg flex items-center gap-2.5 text-sm font-medium no-print">
+        <i class="fa-solid fa-check text-emerald-400"></i>
+        <span id="toast-message">Kopyalandı</span>
+    </div>
+
+    <!-- Minimal Top Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 no-print">
+        <div class="max-w-4xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="font-bold text-slate-900 tracking-tight text-sm sm:text-base flex items-center gap-2.5">
+                <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                <span>YİĞİT CAN TEKE</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+                <a href="#ozet" class="hover:text-blue-600 transition-colors">Özet</a>
+                <a href="#deneyim" class="hover:text-blue-600 transition-colors">Deneyim</a>
+                <a href="#yetkinlikler" class="hover:text-blue-600 transition-colors">Yetkinlikler</a>
+                <a href="#egitim" class="hover:text-blue-600 transition-colors">Eğitim</a>
+                <a href="#iletisim" class="hover:text-blue-600 transition-colors">İletişim</a>
+            </nav>
+
+            <div class="flex items-center gap-2.5">
+                <a href="https://www.linkedin.com/in/yi%C4%9Fit-can-teke-424730238/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-700 hover:text-blue-600 bg-slate-100 hover:bg-blue-50 transition-colors">
+                    <i class="fa-brands fa-linkedin text-blue-600 text-sm"></i>
+                    <span class="hidden sm:inline">LinkedIn</span>
+                </a>
+                <button onclick="window.print()" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-white transition-colors shadow-sm">
+                    <i class="fa-solid fa-print text-xs"></i>
+                    <span>PDF / Yazdır</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Sheet -->
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div class="print-container bg-white rounded-2xl border border-slate-200/90 shadow-sm p-6 sm:p-12 space-y-10">
+
+            <!-- PROFILE HEADER -->
+            <section class="border-b border-slate-200 pb-8">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                    <!-- Profile Photo (`profil.jpg` in repo root, or clean minimal fallback) -->
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shrink-0 flex items-center justify-center shadow-sm">
+                        <img 
+                            src="profil.jpg" 
+                            alt="Yiğit Can Teke" 
+                            onerror="this.style.display='none'; document.getElementById('avatar-fallback').style.display='flex';"
+                            class="w-full h-full object-cover"
+                        >
+                        <div id="avatar-fallback" style="display: none;" class="w-full h-full flex flex-col items-center justify-center bg-slate-100 text-slate-700">
+                            <span class="font-bold text-2xl tracking-tight text-slate-800">YCT</span>
+                        </div>
+                    </div>
+
+                    <!-- Name, Role & Contact Info -->
+                    <div class="flex-1 space-y-3">
+                        <div>
+                            <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+                                YİĞİT CAN TEKE
+                            </h1>
+                            <p class="text-sm sm:text-base font-medium text-blue-600 mt-1">
+                                Raporlama ve Uyarlama &nbsp;|&nbsp; SQL • XML/XSLT • Oracle BI
+                            </p>
+                        </div>
+
+                        <!-- Contact Bar -->
+                        <div class="flex flex-wrap items-center gap-y-2 gap-x-5 text-xs sm:text-sm text-slate-600 pt-1">
+                            <span class="inline-flex items-center gap-2">
+                                <i class="fa-solid fa-location-dot text-slate-400"></i>
+                                <span>Kartal / İstanbul</span>
+                            </span>
+
+                            <button onclick="copyText('0545 374 7310', 'Telefon numarası kopyalandı')" class="inline-flex items-center gap-2 hover:text-blue-600 transition-colors" title="Kopyalamak için tıklayın">
+                                <i class="fa-solid fa-phone text-slate-400"></i>
+                                <span>0545 374 7310</span>
+                            </button>
+
+                            <button onclick="copyText('can.yigit.teke@hotmail.com', 'E-posta adresi kopyalandı')" class="inline-flex items-center gap-2 hover:text-blue-600 transition-colors" title="Kopyalamak için tıklayın">
+                                <i class="fa-solid fa-envelope text-slate-400"></i>
+                                <span>can.yigit.teke@hotmail.com</span>
+                            </button>
+
+                            <a href="https://www.linkedin.com/in/yi%C4%9Fit-can-teke-424730238/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-blue-600 hover:underline font-medium">
+                                <i class="fa-brands fa-linkedin"></i>
+                                <span>linkedin.com/in/yiğit-can-teke</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 1. ÖZET -->
+            <section id="ozet" class="space-y-3 print-avoid-break">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400">
+                    Özet
+                </h2>
+                <p class="text-slate-700 leading-relaxed text-sm sm:text-base">
+                    SQL tabanlı raporlama, XML/XSLT ile veri entegrasyonu, dönüşümü ve fatura şablonu tasarımı alanlarında deneyimli bilişim profesyoneli. PrimeIT'deki 5 aylık stajında Oracle BI, SQL ve son kullanıcı testleri üzerinde çalıştı. Bilgisayar Programcılığı mezunu; Yönetim Bilişim Sistemleri eğitimine devam etmekte ve Power BI becerilerini geliştirmektedir.
+                </p>
+            </section>
+
+            <!-- 2. İŞ DENEYİMİ -->
+            <section id="deneyim" class="space-y-6 print-avoid-break">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 border-b border-slate-100 pb-2">
+                    İş Deneyimi
+                </h2>
+
+                <div class="space-y-8">
+                    <!-- Experience Item 1 -->
+                    <div class="space-y-2.5">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                            <div>
+                                <h3 class="text-base sm:text-lg font-bold text-slate-900">
+                                    İdea Teknoloji Çözümleri
+                                </h3>
+                                <p class="text-sm font-medium text-blue-600">
+                                    Raporlama ve Uyarlama
+                                </p>
+                            </div>
+                            <span class="text-xs sm:text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-md self-start">
+                                01.11.2024 – 01.01.2026
+                            </span>
+                        </div>
+                        <ul class="list-disc list-outside ml-4 space-y-1.5 text-sm sm:text-base text-slate-700 leading-relaxed pt-1">
+                            <li>SQL ile veri sorgulama, rapor hazırlama ve mevcut raporların iş ihtiyaçlarına göre uyarlanması.</li>
+                            <li>XML ve XSLT ile entegrasyon uyarlamaları ve farklı veri yapıları arasında dönüşüm çalışmaları.</li>
+                            <li>Fatura tasarımları ve çıktı şablonlarının hazırlanması; mevcut şablonların güncellenmesi.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Experience Item 2 -->
+                    <div class="space-y-2.5">
+                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                            <div>
+                                <h3 class="text-base sm:text-lg font-bold text-slate-900">
+                                    PrimeIT
+                                </h3>
+                                <p class="text-sm font-medium text-blue-600">
+                                    Stajyer &nbsp;|&nbsp; Oracle BI, SQL ve Son Kullanıcı Testleri
+                                </p>
+                            </div>
+                            <span class="text-xs sm:text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-md self-start">
+                                2024 (5 Ay)
+                            </span>
+                        </div>
+                        <ul class="list-disc list-outside ml-4 space-y-1.5 text-sm sm:text-base text-slate-700 leading-relaxed pt-1">
+                            <li>Oracle BI ve SQL ile veri sorgulama ve raporlama çalışmalarında deneyim kazandı.</li>
+                            <li>Son kullanıcı testlerine katılarak uygulama işlevlerinin kontrolüne destek verdi.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. TEKNİK YETKİNLİKLER -->
+            <section id="yetkinlikler" class="space-y-4 print-avoid-break">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 border-b border-slate-100 pb-2">
+                    Teknik Yetkinlikler
+                </h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Skill Box 1 -->
+                    <div class="p-4 rounded-xl bg-slate-50/80 border border-slate-200/70 space-y-2">
+                        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                            Veri ve Raporlama
+                        </h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white text-slate-800 border border-slate-200 shadow-2xs">SQL</span>
+                            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white text-slate-800 border border-slate-200 shadow-2xs">Oracle BI</span>
+                            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white text-slate-800 border border-slate-200 shadow-2xs">Raporlama</span>
+                            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">Power BI (geliştiriliyor)</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill Box 2 -->
+                    <div class="p-4 rounded-xl bg-slate-50/80 border border-slate-200/70 space-y-2">
+                        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                            Entegrasyon ve Dönüşüm
+                        </h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white text-slate-800 border border-slate-200 shadow-2xs">XML</span>
+                            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white text-slate-800 border border-slate-200 shadow-2xs">XSLT</span>
+                            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white text-slate-800 border border-slate-200 shadow-2xs">Fatura Şablonu Tasarımı</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill Box 3 -->
+                    <div class="p-4 rounded-xl bg-slate-50/80 border border-slate-200/70 space-y-2">
+                        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                            Programlama ve Web
+                        </h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white text-slate-800 border border-slate-200 shadow-2xs">Python</span>
+                            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white text-slate-800 border border-slate-200 shadow-2xs">HTML</span>
+                            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white text-slate-800 border border-slate-200 shadow-2xs">CSS</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill Box 4 -->
+                    <div class="p-4 rounded-xl bg-slate-50/80 border border-slate-200/70 space-y-2">
+                        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                            Araçlar
+                        </h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white text-slate-800 border border-slate-200 shadow-2xs">Visual Studio</span>
+                            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white text-slate-800 border border-slate-200 shadow-2xs">VS Code</span>
+                            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-white text-slate-800 border border-slate-200 shadow-2xs">Microsoft Office</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. EĞİTİM & 5. MESLEKİ GELİŞİM -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 print-avoid-break">
+                
+                <!-- Eğitim (7 Cols) -->
+                <section id="egitim" class="md:col-span-7 space-y-4">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 border-b border-slate-100 pb-2">
+                        Eğitim
+                    </h2>
+
+                    <div class="space-y-4">
+                        <div class="flex items-baseline justify-between gap-4">
+                            <div>
+                                <h3 class="text-sm sm:text-base font-bold text-slate-900">Yönetim Bilişim Sistemleri</h3>
+                                <p class="text-xs sm:text-sm text-slate-600">Lisans Açıköğretim (devam ediyor)</p>
+                            </div>
+                            <span class="text-xs font-medium text-blue-600 bg-blue-50 px-2.5 py-1 rounded shrink-0">2024 – Devam</span>
+                        </div>
+
+                        <div class="flex items-baseline justify-between gap-4">
+                            <div>
+                                <h3 class="text-sm sm:text-base font-bold text-slate-900">İstanbul Okan Üniversitesi</h3>
+                                <p class="text-xs sm:text-sm text-slate-600">Bilgisayar Programcılığı Ön Lisans (mezun)</p>
+                            </div>
+                            <span class="text-xs font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded shrink-0">2022 – 2024</span>
+                        </div>
+
+                        <div class="flex items-baseline justify-between gap-4">
+                            <div>
+                                <h3 class="text-sm sm:text-base font-bold text-slate-900">Pendik Türk Telekom MTAL</h3>
+                                <p class="text-xs sm:text-sm text-slate-600">Bilişim Teknolojileri</p>
+                            </div>
+                            <span class="text-xs font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded shrink-0">2017 – 2021</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Eğitimler ve Mesleki Gelişim & Ek Bilgiler (5 Cols) -->
+                <section class="md:col-span-5 space-y-6">
+                    <!-- Mesleki Gelişim -->
+                    <div class="space-y-3">
+                        <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 border-b border-slate-100 pb-2">
+                            Eğitimler ve Mesleki Gelişim
+                        </h2>
+                        <div class="space-y-3">
+                            <div>
+                                <h3 class="text-sm font-semibold text-slate-900">Power BI / Power Query / Power Pivot / DAX</h3>
+                                <p class="text-xs text-slate-500">Udemy — Uygulamalı gelişim devam ediyor</p>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-semibold text-slate-900">Oracle SQL</h3>
+                                <p class="text-xs text-slate-500">Udemy</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ek Bilgiler -->
+                    <div class="space-y-3">
+                        <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 border-b border-slate-100 pb-2">
+                            Ek Bilgiler
+                        </h2>
+                        <div class="grid grid-cols-3 gap-2 text-xs sm:text-sm">
+                            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/60">
+                                <span class="text-slate-400 text-[11px] block">İngilizce</span>
+                                <span class="font-semibold text-slate-800">Orta düzey</span>
+                            </div>
+                            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/60">
+                                <span class="text-slate-400 text-[11px] block">Askerlik</span>
+                                <span class="font-semibold text-slate-800">Tamamlandı</span>
+                            </div>
+                            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/60">
+                                <span class="text-slate-400 text-[11px] block">Doğum Tarihi</span>
+                                <span class="font-semibold text-slate-800">01.03.2003</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- 6. İLETİŞİM ALT BÖLÜMÜ (CLEAN & MINIMAL) -->
+            <section id="iletisim" class="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 no-print">
+                <div>
+                    <h2 class="text-sm font-bold text-slate-900">İletişim ve Bağlantılar</h2>
+                    <p class="text-xs text-slate-500 mt-0.5">Projeleriniz veya iş fırsatları için doğrudan ulaşabilirsiniz.</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-2.5">
+                    <a href="mailto:can.yigit.teke@hotmail.com" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-800 transition-colors">
+                        <i class="fa-regular fa-envelope"></i>
+                        <span>E-Posta Gönder</span>
+                    </a>
+                    <a href="tel:+905453747310" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-800 transition-colors">
+                        <i class="fa-solid fa-phone text-[11px]"></i>
+                        <span>0545 374 7310</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/yi%C4%9Fit-can-teke-424730238/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white transition-colors shadow-xs">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <span>LinkedIn Profili</span>
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Minimal Footer -->
+    <footer class="py-6 text-center text-xs text-slate-400 no-print">
+        <p>© <span id="year"></span> Yiğit Can Teke &nbsp;•&nbsp; Kartal / İstanbul</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        let toastTimer;
+        function copyText(text, message) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                const toast = document.getElementById('toast');
+                document.getElementById('toast-message').textContent = message;
+                toast.classList.remove('translate-y-16', 'opacity-0');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => {
+                    toast.classList.add('translate-y-16', 'opacity-0');
+                }, 2500);
+            } catch (e) {
+                console.error(e);
+            }
+            document.body.removeChild(textarea);
+        }
+    </script>
+</body>
+</html>
